@@ -1,0 +1,26 @@
+
+export SPARK_KAFKA_VERSION=0.10
+
+spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.5 driver.py 18.211.252.152 9092 transactions-topic-verified>Console-output
+
+
+18.211.252.152:9092 
+
+bin/kafka-console-consumer.sh --bootstrap-server 18.211.252.152:9092 --topic transactions-topic-verified --from-beginning
+
+
+bin/kafka-console-consumer.sh --bootstrap-server 18.211.252.152:9092 --topic de-capstone3 --from-beginning
+
+
+
+
+In the meanwhile, kindly follow the below steps and see if your issue is getting resolved and confirm with me.   
+- EMR version - EMR version 5.30.1 works. Higher versions such as 6.0+ is causing certain issues with Spark-Kafka integration  - 
+- Library issues - Learners need to check if the jar libraries, if at all used, are the correct ones  
+- Spark job submission - If EMR clusters are being used, they need to define the environment variables for Spark accordingly or edit the .bashrc file to add the SPARK_HOME. If not, they should add the complete path while submitting spark jobs using spark-submit. For instance - /usr/bin/spark-submit or /lib/spark/bin/spark-submit (this is only the first part of the code)
+
+
+/usr/bin/spark-submit
+
+/lib/spark/bin/spark-submit
+
